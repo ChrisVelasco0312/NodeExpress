@@ -37,7 +37,7 @@ app.use(cors())
 app.use(express.json())
 
 app.get('/', (request, response) => {
-  response.send('<h1>HELLO</h1>')
+  response.send('<h1>welcome to mynotes-app</h1>')
 })
 app.get('/api/notes', (request, response) => {
   response.send(notes)
