@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 
+
 let notes = [
   {
     id: 1,
@@ -32,13 +33,14 @@ const generateId = () => {
 }
 
 // ------------------
+
+
 app.use(cors())
 
 app.use(express.json())
 
-app.get('/', (request, response) => {
-  response.send('<h1>welcome to mynotes-app</h1>')
-})
+app.use(express.static('build'))
+
 app.get('/api/notes', (request, response) => {
   response.send(notes)
 })
