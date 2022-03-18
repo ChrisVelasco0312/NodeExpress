@@ -1,3 +1,4 @@
+// My custom middlewares.
 const logger = require('./logger')
 
 const requestLogger = (request, response, next) => {
@@ -8,10 +9,12 @@ const requestLogger = (request, response, next) => {
   next()
 }
 
+// handle not found endpoint
 const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: 'unknown endpoint' })
 }
 
+// An utility function to handle all the errors
 const errorHandler = (error, request, response, next) => {
   logger.error(error.message)
 
